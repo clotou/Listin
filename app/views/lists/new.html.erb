@@ -1,0 +1,9 @@
+
+<h1>NEW LIST</h1>
+<h3>Create you list here!</h3>
+<div class="form-wrapper" id="booking-form-div">
+    <%= simple_form_for(@list) do |f| %>
+      <%= f.input :name %>
+      <%= f.submit 'Crete'%>
+    <% end %>
+</div>
