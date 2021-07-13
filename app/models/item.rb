@@ -4,4 +4,5 @@ class Item < ApplicationRecord
   has_many :users, through: :lists
 
   validates :title, :quantity, presence: true
+  # validates :status, default: false
 end
