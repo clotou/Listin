@@ -1,6 +1,9 @@
-<h1>All the lists are here</h1>
-<ul class="list-group">
-<% @lists.each do |list| %>
-<li class="list-group-item"><%=list.name%></li>
-<% end %>
-</ul>
+<div class="container">
+  <h1 class="title-home">All the lists are here</h1>
+  <ul class="list-group">
+  <% @lists.each do |list| %>
+  <li class="button"><%=list.name%></li>
+    <% end %>
+
+  </ul>
+</div>

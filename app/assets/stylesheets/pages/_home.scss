@@ -1,1 +1,17 @@
 // Specific CSS for your home-page
+.title-home {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+ul {
+    list-style-type: none;
+}
+
+.input, .button {
+    border: 1px solid #f9f7f7ed !important;
+}
+.nav-item {
+  display: flex;
+  margin-bottom: 100px;
+}
