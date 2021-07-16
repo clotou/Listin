@@ -1,5 +1,6 @@
 class InvitesController < ApplicationController
   def index
+    @invites = Invite.all
     @pending_invites = @invites.select {|invite| invite.accepted.nil?}.uniq
     @accepted_invites = @invites.select {|invite| invite.accepted?}.uniq
   end

@@ -1,1 +1,26 @@
-<h1>Your invites</h1>
+<div>
+    <div class="container text-center">
+      <div class="index-title mb-5">
+        <h1 class="big-title">Your invites</h1>
+      </div>
+  <div class="mt-2 user-invites">
+
+    <div >
+      <% if @pending_invites.count == 0 %>
+        <p class="invite-content"> You have no pending invites...</p>
+
+        <div class="nav-item">
+          <%= link_to "your lists", lists_path, class: "button"%>
+        </div>
+      <% else %>
+        <h2>My pending invites <%= "(#{@pending_invites.count})" %> </h2>
+        <div class="container">
+          <%= render "invite_card", invites: @pending_invites.uniq %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+    </div>
+  </div>
+</div>
+
