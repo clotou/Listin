@@ -2,7 +2,8 @@
   <h1 class="big-title">All the lists are here</h1>
   <ul class="list-group">
   <% @lists.each do |list| %>
-  <li class="button"><%=list.name%></li>
+
+  <li class="button"><%= link_to "#{list.name}", list_path(list)%></li>
     <% end %>
 
   </ul>
