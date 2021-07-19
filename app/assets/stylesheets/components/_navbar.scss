@@ -53,3 +53,18 @@
   content: "\f2bd";
   font-size: 50px;
 }
+
+.notification-invite{
+  display: flex;
+}
+
+.dot-invite:before  {
+    content: "\f192";
+    color: red;
+}
+
+.dot-dropdown {
+    color: red;
+    padding-right: 15px;
+    padding-top: 5px;
+}

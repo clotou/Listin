@@ -66,7 +66,7 @@ item13 = Item.create(list_id:list2.id, user_id: user3.id, title: "eggs", quantit
 puts "Creating one list 3..."
 list3 = List.create(name: "baby-shower", user_id:user3.id)
 invite5 = Invite.create(list_id:list2.id, user_id: user2.id, accepted: true)
-invite6 = Invite.create(list_id:list2.id, user_id: user1.id, accepted: false)
+invite6 = Invite.create(list_id:list2.id, user_id: user1.id)
 
 item14 = Item.create(list_id:list3.id, user_id: user2.id, title: "guirlande", quantity: 1, status: false)
 item15 = Item.create(list_id:list3.id, user_id: user3.id, title: "bonbons", quantity: 4, status: false)
