@@ -1,7 +1,9 @@
 <h1>
 <%= @list.name %>
 </h1>
-<ul>
-  <% @items.each do |item| %>
-  <li><%= item.title %><%= item.quantity %><%= item.status %></li>
-</ul>
+<div>
+<%= render "items/new" %>
+</div>
+<div>
+  <%= render "items/list", propositions: @list.items.select {|item| item.status!="done"}.sort%>
+</div>

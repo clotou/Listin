@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   def index
     @all_lists = List.all
-    # @lists_invitations = current_user.invites.select {|invite| invite.accepted?}
+    @lists_invitations = current_user.invites.select {|invite| invite.accepted?}
     @all_user_lists = @all_lists.select { |list| list.user_id == current_user.id || !list.invites.select { |invite| invite.accepted? && list.user_id == current_user.id}.empty? }
     @lists = @all_user_lists.uniq.sort
   end

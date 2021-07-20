@@ -1,0 +1,17 @@
+ <div class="">
+  <%= simple_form_for [@list, @item], remote: true do |f| %>
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="form-wrapper proposition-form d-flex justify-content-between booking-form-div-proposition" id="booking-form-div">
+        <div class="proposition-form-left">
+          <%= f.input :title, :placeholder => "chocolate" %>
+          <%= f.input :quantity, :placeholder => '200g' %>
+          <%= f.button :submit, 'Add item', class: "button-small" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
