@@ -1,5 +1,43 @@
-<ul>
-  <% @items.each do |item| %>
-  <li><%= item.title %><%= item.quantity %><%= item.status %></li>
+<div class="item-quant">
+  <% items.each do |item| %>
+    <% if item.done !=true %>
+  <div class="one-item row">
+
+    <div class="list-flex-item">
+      <%= link_to list_item_path(item), method: :delete,
+                                        class: "delete-item",
+                                        data: { confirm: "Delete #{item.title}?" } do %>
+          <span class="button-delete">
+            <i class="fas fa-trash-alt"></i>
+          </span>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="list-flex-item row text-item">
+    <div><%= item.title %></div>
+    <div><%= item.quantity %></div>
+    </div>
+
+    <div class="list-flex-item">
+      <% if item.done != true %>
+        <%= link_to asdone_path(item), remote: true,
+                                    method: :patch,
+                                    class: "asdone-item",
+                                    data: { confirm: "#{item.title} is in your basket?" } do %>
+          <span class="button-caddie">
+            <i class="fas fa-shopping-cart"></i>
+          </span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
   <% end %>
-</ul>
+  <% items.each do |item| %>
+      <div class="one-item row asdone-item">
+    <% if item.done == true %>
+      </div>
+      <%end %>
+    <% end %>
+</div>
+
