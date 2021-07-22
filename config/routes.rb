@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     patch '/invites/:id', to: 'invites#accept', as: :invite
     resources :items, only: [:new, :create, :destroy]
   end
-  patch '/items/:id', to: 'items#done', as: :done
+  patch '/items/:id', to: 'items#asdone', as: :asdone
   resources :invites, only: [:index, :destroy]
   resources :items, only: [:edit] do
     resources :status, only: [:new, :create]

@@ -7,19 +7,19 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    @item = Item.find(params[:item_id])
+    @list = List.find(params[:list_id])
     @item.list_id = @list.id
     if @item.save
-      flash.notice = "#{@pitem.title} has been added to your list"
+      flash.notice = "#{@item.title} has been added to your list"
       redirect_to list_path(@list.id)
     else
       render :new
     end
   end
 
-  def done
+  def asdone
     @item = Item.find(params[:id])
-    @item.status = "done"
+    @item.done = true
     if @item.save
       flash.notice = "#{@item.title} has been add to you basket."
       redirect_to list_path(@item.list)
@@ -28,9 +28,10 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:list_id])
+    # @item.user_id = current_user.id
     @item.destroy
     flash.notice = "#{@item.title} has been removed."
-    redirect_to item_path(@item.list)
+    redirect_to list_path(@item.list)
   end
 
   private
@@ -39,3 +40,4 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:list_id, :user_id, :status, :title, :quantity)
   end
 end
+

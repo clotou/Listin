@@ -1,9 +1,20 @@
-<h1>
-<%= @list.name %>
-</h1>
-<div>
-<%= render "items/new" %>
+<div class="container">
+  <h1 class="medium-title">
+  <%= @list.name %>
+  </h1>
+    <div>
+    <%= render "items/new" %>
+    </div>
+    <h4 class="my-item-title"> My items </h4>
+    <!-- not done items -->
+    <div>
+      <%= render "items/list", items: @list.items.select {|item| item.done != true}.sort {|a,b| b.created_at <=> a.created_at}%>
+
+    </div>
+    <h4 class="basket-item-title"> In my basket </h4>
+    <!-- items done-->
+    <strike><%= render "items/list", items: @list.items.select {|item| item.done == true} %></strike>
+  <div>
+  </div>
 </div>
-<div>
-  <%= render "items/list", propositions: @list.items.select {|item| item.status!="done"}.sort%>
-</div>
+
