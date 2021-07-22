@@ -21,7 +21,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user_id = current_user.id
     if @list.save
-      flash.notice = "#{@list.title} has been created"
+      flash.notice = "#{@list.name} has been created"
       redirect_to list_path(@list.id)
     else
       render :new
@@ -41,3 +41,4 @@ class ListsController < ApplicationController
     params.require(:list).permit(:name)
   end
 end
+
