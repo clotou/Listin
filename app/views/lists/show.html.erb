@@ -1,20 +1,35 @@
 <div class="container">
-  <h1 class="medium-title">
-  <%= @list.name %>
-  </h1>
-    <div>
-    <%= render "items/new" %>
+  <div class="row title-list">
+    <%= link_to list_path(@list), method: :delete,
+                                      class: "delete-list",
+                                      data: { confirm: "Delete #{@list.name}?" } do %>
+        <span class="button-delete" id="list-trash">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      <% end %>
+    <h1 class="medium-title">
+    <%= @list.name %>
+    </h1>
     </div>
-    <h4 class="my-item-title"> My items </h4>
-    <!-- not done items -->
-    <div>
-      <%= render "items/list", items: @list.items.select {|item| item.done != true}.sort {|a,b| b.created_at <=> a.created_at}%>
 
+    <div>
+      <%= render "items/new" %>
     </div>
+
+    <div>
+      <h4 class="my-item-title"> My items </h4>
+      <!-- not done items -->
+      <div>
+        <%= render "items/list", items: @list.items.select {|item| item.done != true}.sort {|a,b| b.created_at <=> a.created_at}%>
+      </div>
+    </div>
+
+  <div>
     <h4 class="basket-item-title"> In my basket </h4>
     <!-- items done-->
-    <strike><%= render "items/list", items: @list.items.select {|item| item.done == true} %></strike>
-  <div>
+    <div class="all-asdone-items">
+    <%= render "items/list", items: @list.items.select {|item| item.done == true}.sort {|a,b| b.created_at <=> a.created_at} %>
+    </div>
   </div>
 </div>
 

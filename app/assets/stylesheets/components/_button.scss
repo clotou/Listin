@@ -123,7 +123,7 @@
   height: 20px;
   right: 18px;
   top: 13px;
-  color: rgb(167, 26, 26);
+  color: rgb(248, 204, 204);
   font-size: 16px;
   &:hover {
     font-size: larger;
@@ -137,11 +137,25 @@
   height: 20px;
   right: 18px;
   top: 13px;
-  color: rgb(20, 102, 20);
+  color: rgb(125, 165, 125);
   font-size: 16px;
   &:hover {
     font-size: larger;
     color: green;
+    transition: 0.4s ease;
+  }
+}
+
+.button-back-item {
+  width: 20px;
+  height: 20px;
+  right: 18px;
+  top: 13px;
+  color: rgb(218, 182, 115);
+  font-size: 16px;
+  &:hover {
+    font-size: larger;
+    color: rgb(145, 93, 14);
     transition: 0.4s ease;
   }
 }

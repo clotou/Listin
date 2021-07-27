@@ -17,14 +17,35 @@ class ItemsController < ApplicationController
     end
   end
 
+  def asback
+    @item = Item.find(params[:id])
+    @item.done = false
+    if @item.save
+      flash.notice = "#{@item.title} (#{@item.quantity}) is back in your list."
+      redirect_to list_path(@item.list)
+    end
+  end
+
   def asdone
     @item = Item.find(params[:id])
     @item.done = true
     if @item.save
-      flash.notice = "#{@item.title} has been add to you basket."
+      flash.notice = "#{@item.title} has been added to you basket."
       redirect_to list_path(@item.list)
     end
   end
+
+  # def update
+  #   @item.user_id = current_user.id
+  #   @list = List.find(params[:list_id])
+  #   @item.list_id = @list.id
+  #   @item.done = false
+  #   @item.update(params[:list_id])
+  #   flash.notice = "#{@item.title} (#{@item.quantity}) is back in your list."
+  #   redirect_to list_path(@item.list)
+  #   # Will raise ActiveModel::ForbiddenAttributesError
+  # end
+
 
   def destroy
     @item = Item.find(params[:list_id])

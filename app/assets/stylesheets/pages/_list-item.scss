@@ -5,7 +5,7 @@
 }
 
 .basket-item-title {
-    align-items: center;
+  align-items: center;
   text-align: center;
   padding: 05px 0px 0px 0px;
 }
@@ -18,7 +18,7 @@
 }
 
 .one-item{
-  padding: 10px 0px;
+  padding: 5px 0px;
   justify-content: space-between;
 }
 
@@ -29,7 +29,24 @@
 
 }
 
-.asdone-item {
-  justify-content: center;
-  padding: 0px 20px;
+.asdone-items {
+  background-color: grey;
+  // justify-content: center;
+  // padding: 0px 20px;
+}
+
+.one-item-done {
+  justify-content: space-between;
+  padding: 5px 0px;
+}
+
+mark {
+  text-align: center;
+  background: linear-gradient(to right, #ff1493de 50%, transparent);
+  width:324px;
+  height: 28px;
+  transform: skewX(-10deg);
+  .text-item{
+    transform: skewX(10deg);
+  }
 }
