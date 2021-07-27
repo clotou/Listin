@@ -7,9 +7,10 @@ Rails.application.routes.draw do
     patch '/invites/:id', to: 'invites#accept', as: :invite
     resources :items, only: [:new, :create, :destroy]
   end
-  patch '/items/:id', to: 'items#asdone', as: :asdone
+  patch '/items/:id', to: 'items#asback', as: :asback
+  patch '/ititems/:id', to: 'items#asdone', as: :asdone
   resources :invites, only: [:index, :destroy]
-  resources :items, only: [:edit] do
+  resources :items, only: [:edit, :update] do
     resources :status, only: [:new, :create]
     member do
       get :done
@@ -17,3 +18,4 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+

@@ -1,43 +1,62 @@
 <div class="item-quant">
   <% items.each do |item| %>
     <% if item.done !=true %>
-  <div class="one-item row">
 
-    <div class="list-flex-item">
-      <%= link_to list_item_path(item), method: :delete,
-                                        class: "delete-item",
-                                        data: { confirm: "Delete #{item.title}?" } do %>
-          <span class="button-delete">
-            <i class="fas fa-trash-alt"></i>
-          </span>
-        <% end %>
-      <% end %>
-    </div>
+      <div class="one-item row">
+        <div class="list-flex-item">
+          <%= link_to list_item_path(item), method: :delete,
+                                            class: "delete-item",
+                                            data: { confirm: "Delete #{item.title}?" } do %>
+              <span class="button-delete">
+                <i class="fas fa-trash-alt"></i>
+              </span>
+            <% end %>
 
-    <div class="list-flex-item row text-item">
-    <div><%= item.title %></div>
-    <div><%= item.quantity %></div>
-    </div>
+        </div>
 
-    <div class="list-flex-item">
-      <% if item.done != true %>
-        <%= link_to asdone_path(item), remote: true,
-                                    method: :patch,
-                                    class: "asdone-item",
-                                    data: { confirm: "#{item.title} is in your basket?" } do %>
-          <span class="button-caddie">
-            <i class="fas fa-shopping-cart"></i>
-          </span>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-  <% end %>
-  <% items.each do |item| %>
-      <div class="one-item row asdone-item">
-    <% if item.done == true %>
+        <div class="list-flex-item row text-item">
+          <div><%= item.title %></div>
+          <div><%= item.quantity %></div>
+        </div>
+
+        <div class="list-flex-item">
+            <%= link_to asdone_path(item), remote: true,
+                                        method: :patch,
+                                        class: "asdone-item",
+                                        data: { confirm: "#{item.title} is in your basket?" } do %>
+              <span class="button-caddie">
+                <i class="fas fa-shopping-cart"></i>
+              </span>
+            <% end %>
+        </div>
       </div>
-      <%end %>
-    <% end %>
+
+    <% elsif item.done == true %>
+    <div class="one-item row">
+
+      <mark>
+      <div class="list-flex-item row text-item">
+          <div><%= item.title %></div>
+          <div><%= item.quantity %></div>
+      </div>
+      </mark>
+
+      <div class="list-flex-item">
+        <%= link_to asback_path(item), remote: true,
+                                      method: :patch,
+                                      class: "back-item-notdone",
+                                      data: { confirm: "#{item.title} (#{item.quantity}) back in your list?" } do %>
+            <span class="button-back-item">
+              <i class="fas fa-undo"></i>
+            </span>
+          <% end %>
+      </div>
+
+    </div>
+  <% end %>
+  <% end %>
 </div>
+
+
+
 
