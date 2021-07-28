@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :items, only: [:edit, :update] do
     resources :status, only: [:new, :create]
     member do
-      get :done
+      # get :done
+      patch :done
+      patch :not_done
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

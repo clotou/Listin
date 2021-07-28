@@ -1,11 +1,13 @@
 <div class="container">
   <div class="row title-list">
+  <% if @list.user == current_user %>
     <%= link_to list_path(@list), method: :delete,
                                       class: "delete-list",
                                       data: { confirm: "Delete #{@list.name}?" } do %>
         <span class="button-delete" id="list-trash">
           <i class="fas fa-trash-alt"></i>
         </span>
+      <% end %>
       <% end %>
     <h1 class="medium-title">
     <%= @list.name %>
