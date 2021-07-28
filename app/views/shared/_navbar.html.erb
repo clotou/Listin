@@ -26,6 +26,7 @@
             <%= link_to  "My invites", invites_path, class: "dropdown-item" %>
             <%= "<i class='fas fa-dot-circle dot-dropdown'></i>".html_safe if current_user.invites.select {|invite| invite.accepted.nil?}.count!=0%>
           </div>
+          <%= link_to  "My lists", lists_path, class: "dropdown-item" %>
           <%= link_to "Edit your profile", edit_user_registration_path, class: "dropdown-item"  %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
