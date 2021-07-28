@@ -15,10 +15,19 @@
           <% end %>
         </div>
 
-        <div class="list-flex-item row text-item">
-          <div><%= item.title %></div>
-          <div><%= item.quantity %></div>
-        </div>
+
+
+         <% if item.user_id == current_user.id %>
+          <div class="list-flex-item row text-item-trash">
+            <div><%= item.title %></div>
+            <div><%= item.quantity %></div>
+          </div>
+          <% else %>
+          <div class="list-flex-item row text-item">
+            <div><%= item.title %></div>
+            <div><%= item.quantity %></div>
+          </div>
+        <% end %>
 
         <div class="list-flex-item">
             <%= link_to asdone_path(item), remote: true,
