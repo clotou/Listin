@@ -1,0 +1,5 @@
+meta_product_name: "List In"
+meta_title: "List In - Easy grocery list"
+meta_description: "Make your groceries lists and share it!"
+meta_image: "listin logo.png" # should exist in `app/assets/images/`
+twitter_account: "@Lewagonparis"   # required for Twitter Cards
