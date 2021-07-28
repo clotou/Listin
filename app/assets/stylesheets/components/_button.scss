@@ -15,16 +15,16 @@
   transition: all 0.1s ease-in-out;
   border: 1px solid #f9f7f7ed !important;
     margin-bottom: 80px;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+      6px 6px 10px rgba(0, 0, 0, 0.2);
+    color: #565454;
   span {
     line-height: 100px;
     font-family: "Montserrat", sans-serif;
     font-size: 32px;
     font-weight: semibold;
   }
-  &:nth-child(1) {
-    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
-      6px 6px 10px rgba(0, 0, 0, 0.2);
-    color: #565454;
+
     &:hover {
       opacity: 0.3;
       box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
@@ -53,7 +53,7 @@
   //       6px 6px 10px rgba(0, 0, 0, 0.2);
   //   }
   // }
-}
+
 .button-small {
   padding-top: 6px;
   width: 50%;
@@ -158,4 +158,52 @@
     color: rgb(145, 93, 14);
     transition: 0.4s ease;
   }
+}
+
+.button-interactive {
+	display: inline-block;
+	padding: .75rem 1.25rem;
+	border-radius: 10rem;
+	color: rgb(82, 145, 85);
+  background-color: rgba(255, 255, 255, 1);
+	text-transform: uppercase;
+	font-size: 1rem;
+	letter-spacing: .15rem;
+	transition: all .3s;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+    border: 1px solid rgb(82, 145, 85);
+		border-radius: 10rem;
+		z-index: -2;
+	}
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0%;
+		height: 100%;
+		background-color: rgb(82, 145, 85);
+		transition: all .3s;
+		border-radius: 10rem;
+		z-index: -1;
+	}
+	&:hover {
+		color: #fff;
+		&:before {
+			width: 100%;
+		}
+	}
+}
+
+.invite-button {
+  font-size: 20px;
 }

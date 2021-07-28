@@ -7,15 +7,18 @@
 
     <div >
       <% if @pending_invites.count == 0 %>
-        <p class="invite-content"> You have no pending invites...</p>
+        <p class="invite-content medium-title"> You have no pending invites...</p>
 
         <div class="nav-item">
           <%= link_to "your lists", lists_path, class: "button"%>
         </div>
       <% else %>
-        <h2>My pending invites <%= "(#{@pending_invites.count})" %> </h2>
+        <h2 class="medium-title">My pending invites <%= "(#{@pending_invites.count})" %> </h2>
         <div class="container">
-          <%= render "invite_card", invites: @pending_invites.uniq %>
+          <%= render "invite_card", invites: @pending_invites%>
+        <div class="nav-item">
+          <%= link_to "your lists", lists_path, class: "button"%>
+        </div>
         </div>
       <% end %>
     </div>
@@ -24,3 +27,4 @@
     </div>
   </div>
 </div>
+

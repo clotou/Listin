@@ -95,7 +95,3 @@ ActiveRecord::Schema.define(version: 2021_07_22_100605) do
   add_foreign_key "items", "users"
   add_foreign_key "lists", "users"
 end
-
-
-
-

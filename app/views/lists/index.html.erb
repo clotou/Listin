@@ -4,6 +4,8 @@
   <%  @lists.each do |list| %>
   <li class="button"><%= link_to "#{list.name}", list_path(list)%></li>
     <% end %>
-
+  <%  @lists_invitations.each do |list| %>
+  <li class="button"><%= link_to "#{list.name}", list_path(list)%></li>
+    <% end %>
   </ul>
 </div>

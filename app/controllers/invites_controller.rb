@@ -1,8 +1,10 @@
 class InvitesController < ApplicationController
+  protect_from_forgery with: :null_session
+
   def index
-    @invites = Invite.all
-    @pending_invites = @invites.select { |invite| invite.accepted.nil? }.uniq
-    @accepted_invites = @invites.select { |invite| invite.accepted? }.uniq
+    @invites = current_user.invites
+    @pending_invites = @invites.select { |invite| invite.accepted != true}.uniq
+    @accepted_invites = @invites.select { |invite| invite.accepted == true }.uniq
   end
 
   def new
