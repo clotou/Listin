@@ -1,37 +1,74 @@
 <div class="container">
   <div class="row title-list">
-  <% if @list.user == current_user %>
-    <%= link_to list_path(@list), method: :delete,
-                                      class: "delete-list",
-                                      data: { confirm: "Delete #{@list.name}?" } do %>
-        <span class="button-delete" id="list-trash">
-          <i class="fas fa-trash-alt"></i>
-        </span>
+    <% if @list.user == current_user %>
+      <%= link_to list_path(@list), method: :delete,
+                                        class: "delete-list",
+                                        data: { confirm: "Delete #{@list.name}?" } do %>
+          <span class="button-delete" id="list-trash">
+            <i class="fas fa-trash-alt"></i>
+          </span>
+          <% end %>
+      <% else %>
+
+      <% if @list.user.avatar.attached? %>
+        <span class="owner-avatr-list-title"><%= cl_image_tag @list.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image" %></span>
+      <% else %>
+        <%= image_tag("avatar-user.png", width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image") %>
       <% end %>
-      <% end %>
+
+    <% end %>
+
+
     <h1 class="medium-title">
     <%= @list.name %>
     </h1>
-    </div>
+  </div>
 
-    <div>
-      <%= render "items/new" %>
-    </div>
-
-    <div>
-      <h4 class="my-item-title"> My items </h4>
-      <!-- not done items -->
-      <div>
-        <%= render "items/list", items: @list.items.select {|item| item.done != true}.sort {|a,b| b.created_at <=> a.created_at}%>
+  <div class="avatar-list">
+    <div class="list-invitees-show row">
+      <div class="button-add-invites " data-toggle="modal" data-target="#exampleModal">
+          <div data-toggle="tooltip" data-placement="top" title="Invite a friend" class="tooltip-add">
+            <i class="fas fa-plus"></i>
+          </div>
       </div>
+      <% @list.invites.each do |invite| %>
+
+        <div class="list-invitees-show row">
+
+            <% if invite.user.avatar.attached? %>
+              <% if invite.accepted?%>
+                <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "list-invitee-show" %>
+              <% else %>
+                <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "list-invitee-show unaccepted-invite"%>
+
+              <% end %>
+            <% else %>
+              <%= image_tag("avatar-user.png", class: "list-invitee-show") %>
+            <% end %>
+
+        </div>
+
+      <% end %>
     </div>
+  </div>
+
+  <div>
+    <%= render "items/new" %>
+  </div>
+
+  <div>
+    <h4 class="my-item-title"> My items </h4>
+    <!-- not done items -->
+    <div>
+      <%= render "items/list", items: @list.items.select {|item| item.done != true}.sort {|a,b| b.created_at <=> a.created_at}%>
+    </div>
+  </div>
 
   <div>
     <h4 class="basket-item-title"> In my basket </h4>
     <!-- items done-->
     <div class="all-asdone-items">
     <%= render "items/list", items: @list.items.select {|item| item.done == true}.sort {|a,b| b.created_at <=> a.created_at} %>
-    </div>
   </div>
 </div>
 
