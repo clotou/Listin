@@ -1,48 +1,48 @@
-<div class="container">
+<div class="" >
+  <% invites.each do |invite| %>
+    <div class="invite-card">
+        <div class="list-card-1 row" >
+          <div class="avatar-card owner-avatar-invite-card">
+            <% if invite.list.user.avatar.attached? %>
+              <%= cl_image_tag invite.list.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image" %>
+            <% else %>
+              <%= image_tag("user-avatar.png", width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image") %>
+            <% end %>
 
-  <div class="" >
-    <% invites.each do |invite| %>
-          <div class="invite-card">
-          <%= link_to list_path(invite.list), class: "list-card-link", data: {turbolinks: false} do%>
-              <div class="list-card row" >
-                  <div class="avatar-card">
-                    <% if invite.list.user.avatar.attached? %>
-                      <%= cl_image_tag invite.list.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image" %>
-                    <% else %>
-                      <%= image_tag("user-avatar.png", width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image") %>
-                    <% end %>
-
-                      <div class="owner-name-invite-card">
-                        <%= invite.list.user.first_name %>
-                      </div>
-                  </div>
-
-                  <h3><%= invite.list.name %></h3>
-
-
-                  <% if invite.accepted != true %>
-                    <div class="accept-invite">
-                      <%= link_to list_invite_path(invite.list.id, invite.id), remote: true,
-                                                                            method: :patch do %>
-                        <span class='button-interactive invite-button'>Accept</span>
-                      <% end %>
-                    </div>
-                  <% end %>
-
-                  <div class="list-invitees">
-                    <% invite.list.invites.each do |invite| %>
-                      <% if invite.user.avatar.attached? %>
-                        <%= cl_image_tag invite.user.avatar.key, width: 30, height: 30, crop: :fill, style: "border-radius: 50%;",class: "list-invitee" %>
-                      <% else %>
-                        <%= image_tag("user-avatar.png", class: "list-invitee") %>
-                      <% end %>
-                    <% end %>
-                  </div>
-
+              <div class="owner-name-invite-card">
+                <%= invite.list.user.first_name %>
               </div>
-          <% end %>
           </div>
-        <% end %>
-  </div>
+
+          <div>
+            <h3><%= invite.list.name %></h3>
+          </div>
+        </div>
+
+        <div class="list-card-2 row" >
+
+
+          <div class="list-invitees">
+            <% invite.list.invites.each do |invite| %>
+              <% if invite.user.avatar.attached? %>
+                <%= cl_image_tag invite.user.avatar.key, width: 30, height: 30, crop: :fill, style: "border-radius: 50%;",class: "list-invitee" %>
+              <% else %>
+                <%= image_tag("user-avatar.png", class: "list-invitee") %>
+              <% end %>
+            <% end %>
+          </div>
+
+        </div>
+          <% if invite.accepted != true %>
+            <div class="accept-invite">
+              <%= link_to list_invite_path(invite.list.id, invite.id), remote: true,
+                                                                      method: :patch do %>
+                <span class='button-interactive '>Accept</span>
+              <% end %>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
 </div>
+
 
