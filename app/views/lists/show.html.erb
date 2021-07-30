@@ -26,7 +26,7 @@
 
   <div class="avatar-list">
     <div class="list-invitees-show row">
-      <div class="button-add-invites " data-toggle="modal" data-target="#exampleModal">
+      <div class="button-add-invites " data-toggle="modal" data-target="#inviteModal">
           <div data-toggle="tooltip" data-placement="top" title="Invite a friend" class="tooltip-add">
             <i class="fas fa-plus"></i>
           </div>
@@ -51,6 +51,8 @@
       <% end %>
     </div>
   </div>
+
+  <%= render "invites/new_invite_modal" %>
 
   <div>
     <%= render "items/new" %>

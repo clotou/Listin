@@ -1,0 +1,22 @@
+<div class="modal fade" id="inviteModal" tabindex="-1" role="dialog" aria-labelledby="inviteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered offset-top-modal modal-list-show" role="document">
+    <div class="modal-content modal-list-show-radius">
+      <div class="modal-header">
+        <h5 class="modal-title" id="inviteModalLabel">Invite a friend to join <%=@list.name%></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="close-invite"aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= simple_form_for [@list, @invite], remote: true do |f| %>
+      <div class="modal-body">
+        <div class="form-wrapper" id="invite-form-div">
+            <%= f.input :email, label: 'Please enter an email address to invite a friend', :placeholder => 'listin@listin.com' %>
+        </div>
+      </div>
+        <div class="modal-footer">
+          <%= f.button :submit, 'Send invite', class: "button-send-invite" %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
