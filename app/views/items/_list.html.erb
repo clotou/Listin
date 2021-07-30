@@ -30,10 +30,9 @@
         <% end %>
 
         <div class="list-flex-item">
-            <%= link_to asdone_path(item), remote: true,
+            <%= link_to as_done_item_path(item), remote: true,
                                         method: :patch,
-                                        class: "asdone-item",
-                                        data: { confirm: "#{item.title} is in your basket?" } do %>
+                                        class: "asdone-item" do %>
               <span class="button-caddie">
                 <i class="fas fa-shopping-cart"></i>
               </span>
@@ -52,7 +51,7 @@
       </mark>
 
       <div class="list-flex-item">
-        <%= link_to asback_path(item), remote: true,
+        <%= link_to not_done_item_path(item), remote: true,
                                       method: :patch,
                                       class: "back-item-notdone",
                                       data: { confirm: "#{item.title} (#{item.quantity}) back in your list?" } do %>

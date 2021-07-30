@@ -2,8 +2,8 @@
   <div class="row title-list">
     <% if @list.user == current_user %>
       <%= link_to list_path(@list), method: :delete,
-                                        class: "delete-list",
-                                        data: { confirm: "Delete #{@list.name}?" } do %>
+                                    class: "delete-list",
+                                    data: { confirm: "Delete #{@list.name}?" } do %>
           <span class="button-delete" id="list-trash">
             <i class="fas fa-trash-alt"></i>
           </span>
@@ -13,7 +13,7 @@
       <% if @list.user.avatar.attached? %>
         <span class="owner-avatr-list-title"><%= cl_image_tag @list.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image" %></span>
       <% else %>
-        <%= image_tag("avatar-user.png", width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image") %>
+        <%= image_tag("user-avatar.png", width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image") %>
       <% end %>
 
     <% end %>
@@ -43,7 +43,7 @@
 
               <% end %>
             <% else %>
-              <%= image_tag("avatar-user.png", class: "list-invitee-show") %>
+              <%= image_tag("user-avatar.png", class: "list-invitee-show") %>
             <% end %>
 
         </div>

@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def asback
+  def not_done
     @item = Item.find(params[:id])
     @item.done = false
     if @item.save
@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def asdone
+  def as_done
     @item = Item.find(params[:id])
     @item.done = true
     if @item.save
