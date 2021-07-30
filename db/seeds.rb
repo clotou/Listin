@@ -69,7 +69,7 @@ item9 = Item.create(list_id:list2.id, user_id: user2.id, title: "PQ", quantity: 
 item10 = Item.create(list_id:list2.id, user_id: user1.id, title: "bread", quantity: 6)
 item11 = Item.create(list_id:list2.id, user_id: user2.id, title: "butter", quantity: 1)
 item12 = Item.create(list_id:list2.id, user_id: user3.id, title: "nutella", quantity: 1)
-item13 = Item.create(list_id:list2.id, user_id: user2.id, title: "sheese", quantity: 3, done: true)
+item13 = Item.create(list_id:list2.id, user_id: user2.id, title: "cheese", quantity: 3, done: true)
 item14 = Item.create(list_id:list2.id, user_id: user3.id, title: "eggs", quantity: 12, done: true)
 
 #Setting up List3
@@ -88,7 +88,7 @@ item20 = Item.create(list_id:list3.id, user_id: user3.id, title: "nappe papier",
 item21 = Item.create(list_id:list3.id, user_id: user2.id, title: "cornets", quantity: 15)
 item22 = Item.create(list_id:list3.id, user_id: user3.id, title: "gobelets", quantity: 20)
 item23 = Item.create(list_id:list3.id, user_id: user3.id, title: "nutella", quantity: 1, done: true)
-item24 = Item.create(list_id:list3.id, user_id: user2.id, title: "sheese", quantity: "3 diff", done: true)
+item24 = Item.create(list_id:list3.id, user_id: user2.id, title: "cheese", quantity: "3 diff", done: true)
 item25 = Item.create(list_id:list3.id, user_id: user3.id, title: "eggs", quantity: 12, done: true)
 item40 = Item.create(list_id:list3.id, user_id: user4.id, title: "HAM", quantity: "for 6", done: true)
 item41 = Item.create(list_id:list3.id, user_id: user4.id, title: "salmon", quantity: "6-8 slices", done: true)
@@ -110,7 +110,7 @@ item31 = Item.create(list_id:list4.id, user_id: user3.id, title: "nappe papier",
 item32 = Item.create(list_id:list4.id, user_id: user2.id, title: "cornets", quantity: 15)
 item33 = Item.create(list_id:list4.id, user_id: user3.id, title: "gobelets", quantity: 20)
 item34 = Item.create(list_id:list4.id, user_id: user3.id, title: "nutella", quantity: 1, done: true)
-item35 = Item.create(list_id:list4.id, user_id: user4.id, title: "sheese", quantity: "3 diff", done: true)
+item35 = Item.create(list_id:list4.id, user_id: user4.id, title: "cheese", quantity: "3 diff", done: true)
 item36 = Item.create(list_id:list4.id, user_id: user3.id, title: "eggs", quantity: 12, done: true)
 item37 = Item.create(list_id:list4.id, user_id: user4.id, title: "gaspaccio", quantity: "1 L", done: true)
 item38 = Item.create(list_id:list4.id, user_id: user4.id, title: "yaourt", quantity: 24, done: true)
