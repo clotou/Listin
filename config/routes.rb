@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :items, only: [:new, :create, :destroy]
   end
   resources :invites, only: [:index, :destroy]
-  resources :items, only: [:index, :create] do
+  resources :items, only: [:index, :create, :edit, :update] do
       member do
         patch :as_done
         patch :not_done

@@ -62,7 +62,7 @@
     <h4 class="my-item-title"> My items </h4>
     <!-- not done items -->
     <div>
-      <%= render "items/list", items: @list.items.select {|item| item.done != true}.sort {|a,b| b.created_at <=> a.created_at}%>
+      <%= render "items/list", items: @list.items.select {|item| item.done != true}.sort%>
     </div>
   </div>
 
@@ -70,7 +70,7 @@
     <h4 class="basket-item-title"> In my basket </h4>
     <!-- items done-->
     <div class="all-asdone-items">
-    <%= render "items/list", items: @list.items.select {|item| item.done == true}.sort {|a,b| b.created_at <=> a.created_at} %>
+    <%= render "items/list", items: @list.items.select {|item| item.done == true}.sort%>
   </div>
 </div>
 
