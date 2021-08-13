@@ -14,12 +14,16 @@
         </div>
       <% else %>
         <h2 class="medium-title">My pending invites <%= "(#{@pending_invites.count})" %> </h2>
-        <div class="container">
-          <%= render "invite_card", invites: @pending_invites%>
-        <div class="nav-item">
-          <%= link_to "your lists", lists_path, class: "button"%>
-        </div>
-        </div>
+
+          <div class="container invites_cards">
+            <div>
+            <%= render "invite_card", invites: @pending_invites%>
+            </div>
+            <div class="nav-item-list-index">
+              <%= link_to "your lists", lists_path, class: "button-yourlist"%>
+            </div>
+          </div>
+
       <% end %>
     </div>
 

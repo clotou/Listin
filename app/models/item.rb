@@ -5,4 +5,5 @@ class Item < ApplicationRecord
 
   validates :title, :quantity, presence: true
   # validates :status, default: false
+
 end

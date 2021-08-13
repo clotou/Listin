@@ -43,15 +43,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update(params[:id])
     redirect_to list_path(@item.list)
-
-    # @item.user_id = current_user.id
-    # @list = List.find(params[:list_id])
-    # @item.list_id = @list.id
-  #   @item.done = false
-  #   @item.update(params[:list_id])
-  #   flash.notice = "#{@item.title} (#{@item.quantity}) is back in your list."
-  #   redirect_to list_path(@item.list)
-  #   # Will raise ActiveModel::ForbiddenAttributesError
   end
 
 
