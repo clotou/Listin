@@ -110,3 +110,11 @@ a {
   flex-wrap: nowrap;
   padding-left: 20px;
 }
+
+.new-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: -15px;
+    margin-left: -15px;
+}
