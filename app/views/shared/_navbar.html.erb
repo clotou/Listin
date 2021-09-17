@@ -6,37 +6,39 @@
   </div>
   <div>
     <% if user_signed_in?%>
-    <div class="nav-item dropdown dropdown-logged ">
+      <div class="nav-item dropdown dropdown-logged ">
 
-      <% if current_user.avatar.attached? %>
-        <div class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button">
-          <%= cl_image_tag current_user.avatar.key, class:"avatar" %>
-        </div>
-      <% else %>
-        <i class='fas fa-user-circle avatar dropdown-toggle' id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" ></i>
-     <% end %>
-
-        <%= "<i class='fas fa-dot-circle dot-invite'></i>".html_safe if current_user.invites.select {|invite| invite.accepted.nil?}.count!=0%>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <div class = "notification-invite">
-            <%= link_to  "My invites", invites_path, class: "dropdown-item" %>
-            <%= "<i class='fas fa-dot-circle dot-dropdown'></i>".html_safe if current_user.invites.select {|invite| invite.accepted.nil?}.count!=0%>
+        <% if current_user.avatar.attached? %>
+          <div class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button">
+            <%= cl_image_tag current_user.avatar.key, class:"avatar" %>
           </div>
-          <%= link_to "My lists", lists_path, class: "dropdown-item" %>
-          <%= link_to "Edit your profile", edit_user_registration_path, class: "dropdown-item"  %>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </div>
+        <% else %>
+          <i class='fas fa-user-circle avatar dropdown-toggle' id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" ></i>
+      <% end %>
 
-      <% else %>
+          <%= "<i class='fas fa-dot-circle dot-invite'></i>".html_safe if current_user.invites.select {|invite| invite.accepted.nil?}.count!=0%>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <div class = "notification-invite">
+              <%= link_to  "My invites", invites_path, class: "dropdown-item" %>
+              <%= "<i class='fas fa-dot-circle dot-dropdown'></i>".html_safe if current_user.invites.select {|invite| invite.accepted.nil?}.count!=0%>
+            </div>
+            <%= link_to "My lists", lists_path, class: "dropdown-item" %>
+            <%= link_to "Edit your profile", edit_user_registration_path, class: "dropdown-item"  %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
 
-        <div class="nav-item dropdown">
-          <i class="fas fa-user-circle avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+    <% else %>
+
+      <div class="nav-item dropdown">
+        <div>
+        <i class="fas fa-user-circle avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Sign in", user_session_path, class: "dropdown-item" %>
             <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
           </div>
         </div>
-      <% end %>
+      </div>
+    <% end %>
 
     </div>
 
