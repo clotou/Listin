@@ -1,0 +1,76 @@
+.marketing-cards {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.card-marketing-top {
+  text-align: center;
+  background-color: #f3e6e6;
+  border-radius: 10px 10px 0px 0px;
+}
+.marketing-text {
+  color: #132618;
+  size: 12px;
+  padding: 0px 10px 10px 10px;
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
+.card-marketing-bottom {
+  width: 300px;
+}
+.card-marketing-bottom img {
+  object-fit: cover;
+  width: 300px;
+  height: 350px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+// marketing card 1
+
+.marketing-card-1 {
+  margin-top: 30px;
+  width: 300px;
+  margin-right: 20px;
+  margin-left: 15px;
+}
+.marketing-card-1 h2 {
+  padding-top: 20px;
+  color: #132618;
+}
+.marketing-card-1 p {
+  color: #132618;
+  size: 12px;
+  text-align: center;
+}
+
+// marketing card 2
+
+.marketing-card-2 {
+  margin-top: 30px;
+  width: 300px;
+  margin-right: 20px;
+}
+.marketing-card-2 h2 {
+  padding-top: 20px;
+  color: #3c2856;
+}
+.marketing-card-2 p {
+  color: #3c2856;
+  size: 12px;
+}
+
+// marketing card 3
+
+.marketing-card-3 {
+  margin-top: 30px;
+  width: 300px;
+  margin-right: 20px;
+}
+.marketing-card-3 h2 {
+  padding-top: 20px;
+  color: #781b3c;
+}
+.marketing-card-3 p {
+  color: #781b3c;
+  size: 12px;
+}

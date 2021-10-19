@@ -11,14 +11,14 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
 
-  <%= favicon_link_tag asset_path('listin logo.png') %>
+  <%= favicon_link_tag asset_path('logolistin.png') %>
   <meta property="og:image" content="https://res.cloudinary.com/clotou/image/upload/e_cartoonify,r_2/v1629728076/cdf86a55-edc9-4df8-83b5-e7617dd5d32d_ezvu26.jpg" />
   </head>
 
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
     <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>
